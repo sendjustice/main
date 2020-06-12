@@ -140,17 +140,24 @@
 			    	var last = ``;
 			    	var head = ``;
 			    	var body = ``;
+			    	var mail = ``;
 			    	list.innerHTML = ``;
 	          		d3.csv("contacts.csv", function(data) {
-	          			
+	          			if(data.Code == 1)
+	          			{
+	          				mail = `<a href="mailto:` + data.Email + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
+				                  		` + data.Email + `</a>`
+	          			}
+	          			else
+	          			{
+	          				mail = `<a href="mailto:` + data.Email + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
+				                  		` + `web address` + `</a>`
+	          			}
 	          			head = `<li data-aos="fade-up">
 							<i class="bx icon-help bxs-map"></i><a data-toggle="collapse" class="collapsed" href="#faq-list-` + count + `"><h4>` + data.Location + `, ` + data.State + `</h4><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a><div id="faq-list-` + count + `" class="collapse" data-parent=".faq-list">`;
 	          			body = `<h4>
-				                	` + data.Role + ` ` + data.Name + `: 
-
-				                  		<a href="mailto:` + data.Email + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
-				                  		` + data.Email + `</a>
-				                  		<a href="tel:` + data.Phone + `" style="display:inline-block;"><img src="phone.png" height="40px"></img>
+				                	` + data.Role + ` ` + data.Name + `:` + mail + 
+				                  		`<a href="tel:` + data.Phone + `" style="display:inline-block;"><img src="phone.png" height="40px"></img>
 				                  		` + data.Phone + `</a>
 				                </h4>`;
 	          			if(count == 1)
