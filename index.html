@@ -129,16 +129,16 @@
           <div >
 
           	<script type="text/javascript">
-          		console.log("script");
-          		d3.csv("contacts.csv", function(data) {
-          			console.log("inside read");
-				    for (var i = 0; i < data.length; i++) {
-				        console.log(data[i]);
-				    }
-				});
 
 
 			    function doSubmit() {
+			    	console.log("script");
+	          		d3.csv("contacts.csv", function(data) {
+	          			console.log("inside read");
+					    for (var i = 0; i < data.length; i++) {
+					        console.log(data[i]);
+					    }
+					});
 			        console.log("submitted");
 			        var name = document.getElementById("name").value;
 			        var subject = document.getElementById("subject").value;
