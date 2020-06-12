@@ -134,9 +134,22 @@
 
 			    function doSubmit() {
 			    	console.log("script");
+			    	var generation = ``;
+			    	var count = 1;
 	          		d3.csv("contacts.csv", function(data) {
-	          			console.log("inside read");
-	          			console.log(data.Name);
+	          			generation += `<li data-aos="fade-up">
+				<i class="bx icon-help bxs-map"></i><a data-toggle="collapse" class="collapsed" href="#faq-list-` + count + `"><h4>` + data.Location + `, ` + data.State + `</h4><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
+              <div id="faq-list-` + count + `" class="collapse" data-parent=".faq-list">
+                <h4>
+                	` + data.Role + ` ` + data.Name + `: 
+
+                  		<a href="mailto:` + data.Email + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
+                  		` + data.Email + `</a>
+                  		<a href="tel:` + data.Phone + `" style="display:inline-block;"><img src="phone.png" height="40px"></img>
+                  		` + data.Phone + `</a>
+                </h4>
+              </div>
+            </li>`;
 					});
 			        console.log("submitted");
 			        console.log("is it changing?!");
@@ -158,36 +171,14 @@
 			        var success = document.getElementById("success");
 			        success.innerHTML=`<div class="text-center"><h3><img src="check.png" height="40px"/> Your template has been set. You may now email your representatives</h3></div>`;
 
-			        updateLinks();
+			        updateLinks(generation);
 			    }
 
-			    function updateLinks() {
+			    function updateLinks(gen) {
 			    	console.log("update links now");
 			    	var list = document.getElementById("list");
 			    	var elements = ``;
-			    	list.innerHTML = `<li data-aos="fade-up">
-				<i class="bx icon-help bxs-map"></i><a data-toggle="collapse" class="collapsed" href="#faq-list-1"><h4>Richmond, VA</h4><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
-              <div id="faq-list-1" class="collapse" data-parent=".faq-list">
-                <h4>
-                	Senator John Cena: 
-
-                  		<a href="https://massapply.com" style="display:inline-block;"><img src="email.png" height="40px"></img>
-                  		info@example.com</a>
-                  		<a href="tel:+1800229933" style="display:inline-block;"><img src="phone.png" height="40px"></img>
-                  		1800229933</a>
-                </h4>
-              </div>
-              <div id="faq-list-1" class="collapse" data-parent=".faq-list">
-                <h4>
-                	Senator John Cena: 
-
-                  		<a href="https://massapply.com" style="display:inline-block;"><img src="email.png" height="40px"></img>
-                  		info@example.com</a>
-                  		<a href="tel:+1800229933" style="display:inline-block;"><img src="phone.png" height="40px"></img>
-                  		1800229933</a>
-                </h4>
-              </div>
-            </li>`;
+			    	list.innerHTML = gen;
 			    }
 			</script>
 
