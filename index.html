@@ -129,9 +129,11 @@
           <div >
 
           	<script type="text/javascript">
+          		console.log("script");
           		d3.csv("contacts.csv", function(data) {
+          			console.log("inside read");
 				    for (var i = 0; i < data.length; i++) {
-				        console.log(data[i].Name);
+				        console.log(data[i]);
 				    }
 				});
 
