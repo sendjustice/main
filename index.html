@@ -66,7 +66,7 @@
         <div class="col-xl-7 col-lg-9 text-center">
           <h1>SendJustice</h1>
           <!--<h2>Share your voice to government officials in just a few clicks</h2>-->
-          <h2>Test again</h2>
+          <h2>HARD update</h2>
         </div>
       </div>
       <div class="text-center">
@@ -157,17 +157,19 @@
 				              </div>`;
 	          			if(count == 1)
 	          			{
-	          				list.innerHTML += head + body;
+	          				generation += head + body;
 	          			}
 	          			else if(last != data.Location)
 	          			{
-	          				list.innerHTML += `</li>` + head + body;
+	          				generation += `</li>` + head + body;
 	          			}
 	          			else
 	          			{
-	          				list.innerHTML += body;
-	          				console.log(data.Name);
-	          				console.log(data.Location);
+	          				generation += body;
+	          			}
+	          			if(count == 204)
+	          			{
+	          				list.innerHTML = generation;
 	          			}
 	          			last = data.Location;
             			count++;
