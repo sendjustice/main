@@ -136,8 +136,10 @@
 			    	console.log("script");
 			    	var generation = ``;
 			    	var count = 1;
+			    	var list = document.getElementById("list");
+			    	list.innerHTML = ``;
 	          		d3.csv("contacts.csv", function(data) {
-	          			generation += `<li data-aos="fade-up">
+	          			list.innerHTML += `<li data-aos="fade-up">
 				<i class="bx icon-help bxs-map"></i><a data-toggle="collapse" class="collapsed" href="#faq-list-` + count + `"><h4>` + data.Location + `, ` + data.State + `</h4><i class="bx bx-chevron-down icon-show"></i><i class="bx bx-chevron-up icon-close"></i></a>
               <div id="faq-list-` + count + `" class="collapse" data-parent=".faq-list">
                 <h4>
@@ -171,7 +173,7 @@
 			        var success = document.getElementById("success");
 			        success.innerHTML=`<div class="text-center"><h3><img src="check.png" height="40px"/> Your template has been set. You may now email your representatives</h3></div>`;
 
-			        updateLinks(generation);
+			        //updateLinks(generation);
 			    }
 
 			    function updateLinks(gen) {
