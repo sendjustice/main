@@ -159,13 +159,13 @@
 	          			{
 	          				list.innerHTML += head + body;
 	          			}
-	          			else if(last == data.Location)
+	          			else if(last != data.Location)
 	          			{
-	          				list.innerHTML += body;
+	          				list.innerHTML += `</li>` + head + body;
 	          			}
 	          			else
 	          			{
-	          				list.innerHTML += `</li>` + head + body;
+	          				list.innerHTML += body;
 	          			}
 	          			last = data.Location;
             			count++;
