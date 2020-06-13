@@ -133,7 +133,30 @@
 
 
 			    function doSubmit() {
-			    	console.log("script");
+
+			    	var name = document.getElementById("name").value;
+			    	if(name.length < 0)
+			    	{
+			    		name = "Concerned Citizen";
+			    	}
+			        var subject = document.getElementById("subject").value;
+			        if(subject.length < 0)
+			        {
+			        	subject = "Demand Police Reform in response to recent Racial Injustice"
+			        }
+			        var personal = document.getElementById("personal").value;
+			        var executives = document.getElementById("executives").value;
+			        var legislators = document.getElementById("legislators").value;
+			        var attorneys = document.getElementById("attorneys").value;
+			        var police = document.getElementById("police").value;
+			        console.log(name);
+			        console.log(subject);
+			        console.log(personal);
+			        console.log(executives);
+			        console.log(legislators);
+			        console.log(attorneys);
+			        console.log(police);
+
 			    	var generation = ``;
 			    	var count = 1;
 			    	var list = document.getElementById("list");
@@ -141,11 +164,29 @@
 			    	var head = ``;
 			    	var body = ``;
 			    	var mail = ``;
+			    	var mailto = ``;
+			    	var specMessage = ``;
 			    	list.innerHTML = ``;
 	          		d3.csv("contacts.csv", function(data) {
+	          			switch(data.Key) {
+					      case 1:
+					        specMessage = executives;
+					        break;
+					      case 2:
+					        specMessage = legislators;
+					        break;
+					      case 3:
+					        specMessage = attorneys;
+					        break;
+					      case 4:
+					        specMessage = police;
+					        break;
+				        }
+	          			mailto = `mailto:` + data.Email + `?subject=` + subject + "&body=" + 
+	          			`Dear ` + data.Role + ` ` + data.Name + `,%0D%0D` + personal + `%0D%0D` + specMessage + `%0D%0DSincerely,%0D` + data.Name;
 	          			if(data.Code == 1)
 	          			{
-	          				mail = `<a href="mailto:` + data.Email + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
+	          				mail = `<a href="` + mailto + `" style="display:inline-block;"><img src="email.png" height="40px"></img>
 				                  		` + data.Email + `</a>`
 	          			}
 	          			else
@@ -182,20 +223,6 @@
 					});
 			        console.log("submitted");
 			        console.log("is it changing?!");
-			        var name = document.getElementById("name").value;
-			        var subject = document.getElementById("subject").value;
-			        var personal = document.getElementById("personal").value;
-			        var executives = document.getElementById("executives").value;
-			        var legislators = document.getElementById("legislators").value;
-			        var attorneys = document.getElementById("attorneys").value;
-			        var police = document.getElementById("police").value;
-			        console.log(name);
-			        console.log(subject);
-			        console.log(personal);
-			        console.log(executives);
-			        console.log(legislators);
-			        console.log(attorneys);
-			        console.log(police);
 
 			        var success = document.getElementById("success");
 			        success.innerHTML=`<div class="text-center"><h3><img src="check.png" height="40px"/> Your template has been set. You may now email your representatives</h3></div>`;
@@ -365,10 +392,10 @@ It is my strong belief that implementing changes like the ones outlined above wi
           <div class="col-lg-4 col-md-6 footer-contact">
             <h3>SendJustice</h3>
             <p>
-            Reach out to us on Instagram or our Email! We appreciate any and all feedback.</p>
+            Feel free to reach out over Instagram or Email! We appreciate any and all feedback.</p>
             <p>  
-              <strong>Instagram:</strong><a href="https://www.instagram.com/sendjustice/">@sendjustice</a><br>
-              <strong>Email:</strong><a href="mailto:sendjusticenow@gmail.com">sendjusticenow@gmail.com</a>
+              <strong>Instagram: </strong><a href="https://www.instagram.com/sendjustice/">@sendjustice</a><br>
+              <strong>Email: </strong><a href="mailto:sendjusticenow@gmail.com">sendjusticenow@gmail.com</a>
             </p>
           </div>
 

@@ -1,4 +1,4 @@
-Role,Role Key,Name,Email,Code,Phone,Location,State
+Role,Key,Name,Email,Code,Phone,Location,State
 Governor,1,Doug Ducey,engage@az.gov,1,602-542-4331,Arizona,AZ
 Senator,2,Martha McSally,contact@mcsally.senate.gov,1,602-952-2410,Arizona,AZ
 Senator,2,Kyrsten Sinema,https://www.sinema.senate.gov/contact-kyrsten,2,602-598-7327,Arizona,AZ
