@@ -135,12 +135,12 @@
 			    function doSubmit() {
 
 			    	var name = document.getElementById("name").value;
-			    	if(name.length < 0)
+			    	if(name.length == 0)
 			    	{
 			    		name = "Concerned Citizen";
 			    	}
 			        var subject = document.getElementById("subject").value;
-			        if(subject.length < 0)
+			        if(subject.length < 4)
 			        {
 			        	subject = "Demand Police Reform in response to recent Racial Injustice"
 			        }
