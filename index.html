@@ -130,10 +130,19 @@
           <div >
 
           	<script type="text/javascript">
-
+          		
+          		updateLinks();
 
 			    function doSubmit() {
 
+			        var success = document.getElementById("success");
+			        success.innerHTML=`<div class="text-center"><h3><img src="check.png" height="40px"/> Your template has been set. You may now email your representatives</h3></div>`;
+			        updateLinks();
+			        //updateLinks(generation);
+			    }
+
+			    function updateLinks() {
+			    	
 			    	var name = document.getElementById("name").value;
 			    	if(name.length == 0)
 			    	{
@@ -219,22 +228,9 @@
 	          			}
 	          			last = data.Location;
             			count++;
-            			console.log(count);
 					});
 			        console.log("submitted");
 			        console.log("is it changing?!");
-
-			        var success = document.getElementById("success");
-			        success.innerHTML=`<div class="text-center"><h3><img src="check.png" height="40px"/> Your template has been set. You may now email your representatives</h3></div>`;
-
-			        //updateLinks(generation);
-			    }
-
-			    function updateLinks(gen) {
-			    	console.log("update links now");
-			    	var list = document.getElementById("list");
-			    	var elements = ``;
-			    	list.innerHTML = gen;
 			    }
 			</script>
 
